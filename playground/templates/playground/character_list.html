@@ -1,0 +1,29 @@
+{% extends 'playground/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        {% for character in characters %}
+            <article class = 'character'>
+                <h2><a href="{% url 'character_detail' id_character=character.id_character %}">{{ character.id_character }}</a></h2>
+                <p>Robe : {{ character.robe }}</p>
+                <p>Etat : {{ character.etat}}</p>
+                <p>Lieu : {{ character.lieu}}</p>
+                <img src="{{ character.photo.url }}" alt="Photo" style="width:300px;height:auto;">
+            </article>
+        {% endfor %}
+    </div>
+    <div class="col-md-6">
+        {% for equipement in equipements %}
+            <article class = 'character'>
+                <h2><a href="{% url 'equipement_detail' id_equip=equipement.id_equip %}">{{ equipement.id_equip }}</a></h2> 
+                <p>Disponibilité : {{ equipement.disponibilite }}</p>
+                <img src="{{ equipement.photo.url }}" alt="Photo" style="width:300px;height:auto;">
+            </article>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+    

@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+    <head>
+        <title>Ranch</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/playground.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Ranch du soleil</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                {% block content %}
+                <a href="{% url 'character_detail' id_character=character.id_character %}">{{ character.id_character }}</a>
+                <a href="{% url 'equipement_detail' id_equip=equipement.id_equip %}">{{ equipement.id_equip }}</a>
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
+    

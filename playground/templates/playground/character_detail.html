@@ -1,0 +1,23 @@
+{% extends 'playground/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+    <h1>
+        <a href="/">{{ character.id_character }}</a>
+    </h1>
+    <img src="{{ character.photo.url }}" alt="Photo" style="width:300px;height:auto;">
+    <form method="POST" class="post-form">{% csrf_token %}
+        <b> Changer : </b> {{ form.as_ul }}
+        <button type="submit" class="btn btn-outline-light">OK</button>
+        <a href="{% url 'character_list' %}">Back</a>
+    </form>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+ 
+{% endblock %}

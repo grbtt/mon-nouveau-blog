@@ -1,0 +1,13 @@
+{% extends 'playground/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+    <article class = 'character'></article>
+        <h1><a href="/">{{ equipement.id_equip }}</a></h1>
+        <img src="{{ equipement.photo.url }}" alt="Photo" style="width:300px;height:auto;">
+        <p>{{ equipement.texte }}</p>
+    </article>
+
+</div>
+ 
+{% endblock %}
